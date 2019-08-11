@@ -75,3 +75,17 @@ X = Activation('sigmoid')(X)
 model = Model(inputs=sentences, outputs=X)
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(padded_train_sen, train_labels, epochs=50, verbose=1, batch_size=32)   
+
+
+
+X2 = LSTM(50, return_sequences=False)(embeddings)
+X2 = Dropout(0.5)(X2)
+X2 = Dense(1)(X2)
+X2 = Activation('sigmoid')(X2)
+
+model = Model(inputs=sentences, outputs=X)
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.fit(padded_train_sen, train_labels, epochs=50, verbose=1, batch_size=32)
+
+loss, accuracy = model.evaluate(padded_test_sen, test_labels, verbose=1)
+print('Accuracy: %f' % (accuracy*100))
