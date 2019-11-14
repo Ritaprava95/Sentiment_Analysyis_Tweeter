@@ -1,2 +1,2 @@
 # Sentiment_Analysyis_Twitter
-# By reading a tweeet this model is supposed to figure out the sentiment. 
+# By reading a tweet this model is supposed to figure out the sentiment. 
